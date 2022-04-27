@@ -1,0 +1,74 @@
+%NAME: citestyle.sty
+
+% 理论
+% Author: Zhu Liucheng
+% E-mail: 2576950110@qq.com
+% Date : 2022/4/27
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                        导 入 宏 包                            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage[UTF8,scheme=chinese]{ctex} % 中文宏包
+
+\RequirePackage[
+  top=2.54cm, bottom=2.54cm,
+  left=3.18cm, right=3.18cm,
+  headsep=3mm]{geometry} % 页边距 常规参数
+
+\RequirePackage{amsmath} % 希腊字母
+\RequirePackage{amsfonts} % 特殊字体样式
+\RequirePackage{amssymb} % 罗马数字
+\RequirePackage{amsthm}
+\RequirePackage{mathrsfs}
+\RequirePackage{hyperref}% load at last
+
+\RequirePackage[ruled]{algorithm2e} % 算法
+\RequirePackage{graphicx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                          自 定 义                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------
+% 数学的自定义
+\newtheorem{problem}{\indent 问题}[section]
+
+
+%---------------------------------------------------------------------------
+% 罗马数字样式定义
+\makeatletter
+  \newcommand{\rmnum}[1]{\romannumeral #1}
+  \newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+% 小写罗马数字 ： \rmnum{数字}
+% 大写罗马数字 ： \Rmnum{数字}
+
+%---------------------------------------------------------------------------
+% 链接设置
+\hypersetup{% set hyperlinks
+  pdfencoding=auto,% allows non-Latin based languages in bookmarks
+  psdextra=true,% extra support for math symbols in bookmarks
+  %bookmarks=true,% show bookmarks bar
+  bookmarksnumbered=true,% put section numbers in bookmarks
+  pdftitle={\@title},% title
+  pdfauthor={\@author},% author
+  pdfsubject={\@title},% subject
+  %pdftoolbar=true,% show toolbar
+  %pdfmenubar=true,% show menu
+  pdffitwindow=false,% window fit to page when opened
+  pdfstartview={FitH},% fits the width of the page to the window
+  %pdfnewwindow=true,% links in new window
+  %backref=true,% do bibliographical back references
+  %pagebackref=true,% backreference by page number
+  colorlinks=true,% false: boxed links; true: colored links
+  linkcolor=black,% color of internal links
+  citecolor=blue,% color of links to bibliography
+  filecolor=blue,% color of file links
+  urlcolor=blue,% color of external links
+}
+
+%---------------------------------------------------------------------------
+% 定义所有的图片文件在 figures 子目录下
+\graphicspath{{figure/}}
