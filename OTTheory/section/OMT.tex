@@ -28,6 +28,26 @@
 	\label{fig: Brenier}
 \end{figure}
 
+根据Brenier定理，将有一个分段线性凸函数$u:\Omega \to \mathbb{R}$、 梯度映射给出了最佳运输映射。
+
+\begin{theorem}[Alexandrov 1950]
+    给定在$\mathbb{R}^n$上的紧凸域$\Omega$，在$\mathbb{R}^n$上互不相同的$p_1, \cdots , p_k$，当$A_1,\cdots ,A_k >0$，使得 $\sum A_i =Vol(\Omega)$，则存在PL凸函数
+    \begin{equation}
+        f(x):=\max \left \{ \left \langle x,p_i \right \rangle +h_i \mid i=1, \cdots , k  \right \} ,
+        \label{equ:PL convex}
+    \end{equation}
+    唯一的传输使得
+	\begin{equation}
+        Vol(W_i)=Vol\left ( \left \{ x \mid \bigtriangledown f(x)=p_i \right \}  \right ) =A_i. 
+        \label{equ:Vol}
+    \end{equation}
+\end{theorem}
+
+Alexandrov’s 证明是拓扑的，而不是变分。多年来人们一直开放寻找构造性的证明。
+
+\subsection{变分证明}
+
+
 
 \begin{algorithm}[H]
     \renewcommand{\thealgocf}{}
