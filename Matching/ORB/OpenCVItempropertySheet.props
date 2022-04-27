@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <IncludePath>E:\vsOpencv\build\include\opencv2;E:\vsOpencv\build\include;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\vsOpencv\build\x64\vc16\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalDependencies>opencv_aruco454d.lib;opencv_barcode454d.lib;opencv_bgsegm454d.lib;opencv_bioinspired454d.lib;opencv_calib3d454d.lib;opencv_ccalib454d.lib;opencv_core454d.lib;opencv_datasets454d.lib;opencv_dnn454d.lib;opencv_dnn_objdetect454d.lib;opencv_dnn_superres454d.lib;opencv_dpm454d.lib;opencv_face454d.lib;opencv_features2d454d.lib;opencv_flann454d.lib;opencv_fuzzy454d.lib;opencv_gapi454d.lib;opencv_hdf454d.lib;opencv_hfs454d.lib;opencv_highgui454d.lib;opencv_imgcodecs454d.lib;opencv_imgproc454d.lib;opencv_img_hash454d.lib;opencv_intensity_transform454d.lib;opencv_line_descriptor454d.lib;opencv_mcc454d.lib;opencv_ml454d.lib;opencv_objdetect454d.lib;opencv_optflow454d.lib;opencv_phase_unwrapping454d.lib;opencv_photo454d.lib;opencv_plot454d.lib;opencv_quality454d.lib;opencv_rapid454d.lib;opencv_reg454d.lib;opencv_rgbd454d.lib;opencv_saliency454d.lib;opencv_shape454d.lib;opencv_stereo454d.lib;opencv_stitching454d.lib;opencv_structured_light454d.lib;opencv_superres454d.lib;opencv_surface_matching454d.lib;opencv_text454d.lib;opencv_tracking454d.lib;opencv_video454d.lib;opencv_videoio454d.lib;opencv_videostab454d.lib;opencv_wechat_qrcode454d.lib;opencv_xfeatures2d454d.lib;opencv_ximgproc454d.lib;opencv_xobjdetect454d.lib;opencv_xphoto454d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup />
+</Project>
