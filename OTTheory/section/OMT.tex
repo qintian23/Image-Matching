@@ -102,6 +102,17 @@ Alexandrov’s 证明是拓扑的，而不是变分。多年来人们一直开�
 
 \begin{algorithm}[H]
     \renewcommand{\thealgocf}{}
+    \caption{\texttt{Optimal Transport Map}}
+    \KwIn{A set of distinct points $P={p_1, p_2, \cdots , p_k}$}, and the weights $\{A_1, A_2, \cdots , A_k \}$; A convex domain $\Omega, \sum A_j = Vol(\Omega)$;
+    
+    \KwOut{The optimal transport map $T:\Omega \to P$}
+    Scale and translate $\mathbf{P}$, such that $P \subset \Omega$;
+    Initialize $\mathbf{h}^0 \gets \frac{1}{2} \left ( \left | p_1 \right |^2, \left | p_2 \right |^2, \cdots, \left | p_k \right |^2   \right )^T  $;
+
+\end{algorithm}
+
+\begin{algorithm}[H]
+    \renewcommand{\thealgocf}{}
     \caption{\texttt{ConvexHull}($P$)}
     \KwIn{A set $P$ of points in the plane.}
     \KwOut{A list $\mathcal{L}$ containing the vertices of $\mathcal{CH}(P)$ in clockwise order.}
