@@ -160,6 +160,33 @@ Alexandrov’s 证明是拓扑的，而不是变分。多年来人们一直开�
     \end{algorithmic}
 \end{algorithm}
 
+
+\subsection{依赖关系}
+
+\begin{enumerate}
+    \item 'detri2'，一个网格生成库，由Si Hang博士编写。
+    \item 'MeshLib'，基于半边数据结构的网格库。
+    \item 'freeglut'，OpenGL实用工具工具包（GLUT）库的自由软件/开源替代品。
+\end{enumerate}
+
+目录结构
+\begin{itemize}
+    \item ot\_2d/include，优化传输的头文件；
+    \item ot\_2d/src，优化传输的源文件。
+    \item data，一些模型。
+    \item CMakeLists.txt，CMake配置文件。
+    \item resources，需要一些资源。
+    \item 3rdparty, MeshLib and freeglut libraries.
+\end{itemize}
+
+在开始之前，请仔细阅读自述文件，然后一步一步地进行以下三个步骤：
+
+\begin{enumerate}
+    \item 下载 \href{https://cmake.org/download/}{CMake}
+    \item 下载C++框架的源代码
+    \item 
+\end{enumerate}
+
 \begin{algorithm}[H]
     \renewcommand{\thealgocf}{}
     \caption{\texttt{ConvexHull}($P$)}

@@ -21,13 +21,13 @@
 \RequirePackage{amssymb} % 罗马数字
 \RequirePackage{amsthm}
 \RequirePackage{mathrsfs}
-\RequirePackage{hyperref}% load at last
 
 \RequirePackage[linesnumbered,boxed,ruled,commentsnumbered]{algorithm2e}%%算法包，注意设置所需可选项 
 \RequirePackage{algorithmic} % 算法内编号
 \RequirePackage{graphicx}
 \RequirePackage{float} % 浮动，分页
 
+\RequirePackage{hyperref}% 超链接
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                          自 定 义                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -77,4 +77,11 @@
 \graphicspath{{figure/}}
 
 %---------------------------------------------------------------------------
-% 代码分页
+% 超链接格式设置
+\hypersetup{
+  hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true
+}
