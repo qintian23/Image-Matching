@@ -184,8 +184,38 @@ Alexandrov’s 证明是拓扑的，而不是变分。多年来人们一直开�
 \begin{enumerate}
     \item 下载 \href{https://cmake.org/download/}{CMake}
     \item 下载C++框架的源代码
-    \item 
+    \item 为Visual Studio配置并生成项目
+        \begin{itemize}
+            \item 打开命令窗口
+            \item cd Assignment\_6\_skeleton
+            \item mkdir build
+            \item cd build
+            \item cmake ..
+            \item 在build目录中打开CCGHomework.sln
+        \end{itemize}
+    \item 使用Visual Studio打开.sln文件，并编写解决方案
+    \item 在你的IDE中完成代码。
+        \begin{itemize}
+            \item 你需要修改的文件：OT.cpp，CDomainOptimalTransport.cpp
+            \item 搜索注释“在此处插入代码”
+            \item 修改函数
+                \begin{itemize}
+                    \item CDomainTransport:: newton(COMTMesh * pInput, COMTMesh *pOutput)
+                    \item CBaseOT:: update direction(COMTMesh* pMesh)
+                    \item CBaseOT:: compute hessian matrix(COMTMesh\& mesh,Eigen::SparseMatrix\& hessian)
+                \end{itemize}
+        \end{itemize}
+    \item 运行可执行程序
+        \begin{itemize}
+            \item 动态链接库
+            Copy detri2.dll and detri2d.dll from 3rdparty/detri2/lib/windows to build/ot 2d/; Libraries and dlls for Linux and MAC are also available.
+            \item 命令
+            OT2d.exe girl.m
+            所有数据文件都在data文件夹中，所有纹理图像都在textures文件夹中。
+        \end{itemize}
 \end{enumerate}
+
+
 
 \begin{algorithm}[H]
     \renewcommand{\thealgocf}{}
