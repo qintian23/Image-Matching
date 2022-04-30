@@ -20,8 +20,7 @@
     \end{equation}
 \end{problem}
 
-\begin{figure}
-    [h]
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=0.6\linewidth]{Brenier}
 	\caption{ Brenier图}
@@ -47,7 +46,59 @@ Alexandrov’s 证明是拓扑的，而不是变分。多年来人们一直开�
 
 \subsection{变分证明}
 
+\begin{theorem}[Gu-Luo-Sun-Yau 2013]
+    $\Omega$ 是在$\mathbb{R}^2$上的紧凸域，$y_1, \cdots , y_k$在$\mathbb{R}^2$上互不相同，$\mu$是在$\Omega$上的正连续。任意$v_1, \cdots , v_k > 0$ 以及 $\sum v_i =\mu(\Omega)$，
+    存在1个向量$(h_1, \cdots , h_k)$使得，
+    \begin{equation*}
+        u(x)=\max \left \{ \left \langle x ,\mathbf{p}_i  \right \rangle +h_i  \right \} 
+    \end{equation*}
+    满足$\mu(W_i \cap \Omega)=v_i$，其中$W_i=\left \{  x \mid \bigtriangledown f(x)=\mathbf{p}_i   \right \} $。此外，$\mathbf{h}$是凹函数的最大点
+    \begin{equation}
+        E(\mathbf{h})=\sum_{i=1}^{k}v_ih_i - \int_{0}^{h} \sum_{i=1}^{k} w_i(\eta )\mathrm{d}\eta _i    
+    \end{equation}
+    其中$w_i(\eta)=\mu(W_i(\eta) \cap \Omega)$是胞腔的$\mu -$体积。
+    \label{theorem:Gu-Luo-Sun-Yau 2013}
+\end{theorem}
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\linewidth]{polyhedron}
+    \caption{ polyhedron图}
+	\label{fig: polyhedron}
+\end{figure}
+
+可以通过定义圆柱体$\partial \Omega$, 圆柱体被$xy$平面和凸多面体截断。能量项$\int ^{\mathbf{h}}\sum w_i (\eta) \mathrm{d}\eta_i$等于截断圆柱体的体积。
+
+\subsection{计算算法}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{particale}
+    \caption{ particale图}
+	\label{fig: particale}
+\end{figure}
+
+\begin{definition}[Alexandrov Potential]
+    凹面能量是
+    \begin{equation}
+        E(h_1, h_2, \cdots , h_k) = \sum_{i=1}^k v_ih_i - \int_0^{\mathbf{h}} \sum_{j=1}^k w_j(\eta)\mathrm{d}\eta_j 
+        \label{equ:Alexandrov Potential}
+    \end{equation}
+    \label{def:Alexandrov Potential}
+\end{definition}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Alexandrov Potential}
+    \caption{Alexandrov Potential图}
+    \label{fig:Alexandrov Potential}
+\end{figure}
+
+能量的Hessian是边和双边的长度比，
+\begin{equation*}
+    \frac{\partial w_i}{\partial h_j} = -\frac{\left \lfloor \textcolor{blue}{ e_{ij}} \right \rfloor }{\left \lfloor \bar{e}_{ij}  \right \rfloor } 
+    \label{equ:Alexandrov}
+\end{equation*}
 
 \begin{algorithm}[H]
     \renewcommand{\thealgocf}{}
