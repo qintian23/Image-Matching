@@ -100,15 +100,64 @@ Alexandrov’s 证明是拓扑的，而不是变分。多年来人们一直开�
     \label{equ:Alexandrov}
 \end{equation*}
 
-\begin{algorithm}[H]
-    \renewcommand{\thealgocf}{}
-    \caption{\texttt{Optimal Transport Map}}
-    \KwIn{A set of distinct points $P={p_1, p_2, \cdots , p_k}$}, and the weights $\{A_1, A_2, \cdots , A_k \}$; A convex domain $\Omega, \sum A_j = Vol(\Omega)$;
-    
-    \KwOut{The optimal transport map $T:\Omega \to P$}
-    Scale and translate $\mathbf{P}$, such that $P \subset \Omega$;
-    Initialize $\mathbf{h}^0 \gets \frac{1}{2} \left ( \left | p_1 \right |^2, \left | p_2 \right |^2, \cdots, \left | p_k \right |^2   \right )^T  $;
+\begin{algorithm}
+	\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+	\renewcommand{\algorithmicensure}{\textbf{Output:}}
+	\caption{Bayesian Personalized Ranking Based Latent Feature Embedding Model}
+	\label{alg:1}
+	\begin{algorithmic}[1]
+		\REQUIRE latent dimension $K$, $G$, target predicate $p$
+		\ENSURE $U^{p}$, $V^{p}$, $b^{p}$
+		\STATE Given target predicate $p$ and entire knowledge graph $G$, construct its bipartite subgraph, $G_{p}$ 
+		\STATE $m$ = number of subject entities in $G_{p}$
+		\STATE $n$ = number of object entities in $G_{p}$ 
+		\STATE Generate a set of training samples $D_{p} = \{(s_p, o^{+}_{p}, o^{-}_{p})\}$ using uniform sampling technique
+		\STATE Initialize $U^{p}$ as size $m \times K$ matrix with $0$ mean and standard deviation $0.1$
+		\STATE Initialize $V^{p}$ as size $n \times K$ matrix with $0$ mean and stardard deviation $0.1$
+		\STATE Initialize $b^{p}$ as size $n \times 1$ column vector with $0$ mean and stardard deviation $0.1$
+		\FORALL{$(s_p, o^{+}_{p}, o^{-}_{p}) \in D_{p}$}
+		\STATE Update $U_{s}^{p}$ based on Equation~\ref{eq:sgd1}
+		\STATE Update $V_{o^{+}}^{p}$ based on Equation~\ref{eq:sgd2}
+		\STATE Update $V_{o^{-}}^{p}$ based on Equation~\ref{eq:sgd3}
+		\STATE Update $b_{o^{+}}^{p}$ based on Equation~\ref{eq:sgd4}
+		\STATE Update $b_{o^{-}}^{p}$ based on Equation~\ref{eq:sgd5}
+		\ENDFOR
+		\STATE \textbf{return} $U^{p}$, $V^{p}$, $b^{p}$
+	\end{algorithmic}  
+\end{algorithm}
 
+\begin{algorithm}[H]
+    \renewcommand{\algorithmicrequire}{\textbf{Input:}}
+	\renewcommand{\algorithmicensure}{\textbf{Output:}}
+    \caption{\texttt{Optimal Transport Map}}
+    \label{alg:Optimal Transport Map}
+    \begin{algorithmic}[1]
+        \REQUIRE A set of distinct points $P={p_1, p_2, \cdots , p_k}$, and the weights $\{A_1, A_2, \cdots , A_k \}$; A convex domain $\Omega, \sum A_j = Vol(\Omega)$;
+        \ENSURE {The optimal transport map $T:\Omega \to P$}
+
+        \STATE Scale and translate $\mathbf{P}$, such that $P \subset \Omega$;\\
+        \STATE Initialize $\mathbf{h}^0 \gets \frac{1}{2} \left ( \left | p_1 \right |^2, \left | p_2 \right |^2, \cdots, \left | p_k \right |^2   \right )^T  $;\\  
+        \STATE Compute the Brenier potential $u(\mathbf{h}^k)(envelope of \pi'_is)$ and its Legendre dual $u^* (\mathbf{h}^k)(convex hull of \pi'^{*}_is)$;
+        \STATE Project the Brenier potential and Legendre dual to obtain weighted Delaunay trigulation $\mathcal{T}(\mathbf{h}^k)$ and power diagram $\mathcal{D}(\mathbf{h}^k)$;
+        \STATE Compute the gradient of the energy
+            \begin{equation*}
+                \bigtriangledown E(\mathbf{h} )=(A_1-w_1(\mathbf{h}), A_2-w_2(\mathbf{h}), \cdots , A_k-w_k(\mathbf{h} ) )^T
+            \end{equation*}
+        \STATE If $\left \| E(\mathbf{h}^k) \right \| $ is less than $\epsilon$, then return $T=\bigtriangledown u(\mathbf{h}^k)$;
+        \STATE Compute the Hessian matrix of the energy
+            \begin{equation*}
+                \frac{\partial w_i(\mathbf{h})}{\partial h_j}=-\frac{\left | e_{ij} \right | }{\left | \bar{e}_{ij}  \right | } , \frac{\partial  w_i}{\partial  h_j} =-\sum \frac{\partial  w_i(\mathbf{h})}{\partial h_j}  
+            \end{equation*}
+        \STATE Solve linear system 
+            \begin{equation*}
+                \bigtriangledown E(\mathbf{h})=Hess(\mathbf{h}^k)\mathbf{d}
+            \end{equation*}
+        \STATE Set the step length $\lambda \gets 1$;
+        \STATE construct the convex hull $Conv(\mathbf{h}^k + \lambda \mathbf{d})$;
+        \STATE if there is any empty power cell, $\lambda \gets \frac{1}{2} \lambda $, repeat step 3 and 4, until all power cells are non-empty;
+        \STATE set $\mathbf{h}^{k+1} \gets \mathbf{h}^{k} + \lambda \mathbf{d}$;
+        \STATE repeat step 3 through 14.
+    \end{algorithmic}
 \end{algorithm}
 
 \begin{algorithm}[H]

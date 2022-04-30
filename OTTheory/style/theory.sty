@@ -23,8 +23,10 @@
 \RequirePackage{mathrsfs}
 \RequirePackage{hyperref}% load at last
 
-\RequirePackage[ruled]{algorithm2e} % 算法
+\RequirePackage[linesnumbered,boxed,ruled,commentsnumbered]{algorithm2e}%%算法包，注意设置所需可选项 
+\RequirePackage{algorithmic} % 算法内编号
 \RequirePackage{graphicx}
+\RequirePackage{float} % 浮动，分页
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                          自 定 义                             %
@@ -73,3 +75,6 @@
 %---------------------------------------------------------------------------
 % 定义所有的图片文件在 figures 子目录下
 \graphicspath{{figure/}}
+
+%---------------------------------------------------------------------------
+% 代码分页
