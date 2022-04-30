@@ -2,6 +2,8 @@
 
 为我的选题所摆的龙门阵。
 
+[球面上的随机点](https://datagenetics.com/blog/january32020/index.html)
+
 ## 1 理论推导
 
 ### 1.1 OT course
