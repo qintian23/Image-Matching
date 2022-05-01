@@ -23,6 +23,7 @@
     <ClCompile Include="glad.c" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ShaderClass.cpp" />
+    <ClCompile Include="stb.cpp" />
     <ClCompile Include="VAO.cpp" />
     <ClCompile Include="VBO.cpp" />
   </ItemGroup>
@@ -90,16 +91,16 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>G:\zuoye\OT\MYOpenGL\Librarys\include;$(IncludePath)</IncludePath>
-    <LibraryPath>G:\zuoye\OT\MYOpenGL\Librarys\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>G:\zuoye\Image-Matching\MYOpenGL\Librarys\include;$(IncludePath)</IncludePath>
+    <LibraryPath>G:\zuoye\Image-Matching\MYOpenGL\Librarys\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>G:\zuoye\OT\MYOpenGL\Librarys\include;$(IncludePath)</IncludePath>
-    <LibraryPath>G:\zuoye\OT\MYOpenGL\Librarys\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>G:\zuoye\Image-Matching\MYOpenGL\Librarys\include;$(IncludePath)</IncludePath>
+    <LibraryPath>G:\zuoye\Image-Matching\MYOpenGL\Librarys\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
