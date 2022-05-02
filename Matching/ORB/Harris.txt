@@ -1,10 +1,12 @@
-#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/highgui/highgui.hpp> 
 #include <opencv2/xfeatures2d/nonfree.hpp>
 #include <opencv2/imgproc.hpp>
+#include <opencv2/core/core.hpp>
 #include <iostream>
 
-using namespace std;
 using namespace cv;
+using namespace std;
+
 
 int main()
 {
@@ -20,17 +22,17 @@ int main()
     cvtColor(image01, image1, COLOR_RGB2GRAY);
     cvtColor(image02, image2, COLOR_RGB2GRAY);
 
-    // 提取特征点
-    Ptr<FastFeatureDetector> detector = FastFeatureDetector::create(80);
+    //提取特征点    
+    Ptr<FeatureDetector> Detector = GFTTDetector::create();
     vector<KeyPoint> keyPoint1, keyPoint2;
-    detector->detect(image1, keyPoint1);
-    detector->detect(image2, keyPoint2);
+    Detector->detect(image1, keyPoint1);
+    Detector->detect(image2, keyPoint2);
 
-    // 特征点描述，为下边的特征点匹配做准备    
-    Ptr<DescriptorExtractor> descriptor= SIFT::create();
+    //特征点描述，为下边的特征点匹配做准备    
+    Ptr<DescriptorExtractor>   Descriptor = SIFT::create();
     Mat imageDesc1, imageDesc2;
-    descriptor->compute(image1, keyPoint1, imageDesc1);
-    descriptor->compute(image2, keyPoint2, imageDesc2);
+    Descriptor->compute(image1, keyPoint1, imageDesc1);
+    Descriptor->compute(image2, keyPoint2, imageDesc2);
 
     BFMatcher matcher;
     vector<vector<DMatch> > matchePoints;
@@ -58,5 +60,4 @@ int main()
     imwrite("first_match.jpg", first_match);
     waitKey();
     return 0;
-
 }

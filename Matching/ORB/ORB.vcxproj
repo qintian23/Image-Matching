@@ -148,6 +148,7 @@
     <Text Include="SIFT.txt" />
     <Text Include="suft.txt" />
     <Text Include="suft2.txt" />
+    <Text Include="Harris.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SIFT2.0" />
