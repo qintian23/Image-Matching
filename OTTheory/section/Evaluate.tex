@@ -1,0 +1,51 @@
+\section{性能评估}
+
+我们知道字符串匹配有精准匹配、部分匹配、前缀匹配、后缀匹配。当然，我并没有了解过字符匹配的性能评价。这里我设计了几个匹配效果的算法。
+
+首先，对于匹配算法的性能我们希望它是鲁棒的、准确的、时间复杂度和空间度好的、稳定的，同时我们应该要测试一下这些算法的灵敏度。因此，我们应该要事先准备一个相关的评价模板，以及测试案例。
+简而言之，匹配效果的描述应该由这两项构成：标准（鲁棒、准确率、泛化能力），性能（时间复杂度、空间复杂度、可并行化设计、稳定、灵敏）。
+\begin{itemize}
+    \item 评价模板
+    \item 测试案例
+\end{itemize}
+
+FME的目的是作为一个模板来捕获用于基于分析的高级信息；效率变量、代价和收益，对于特征描述子而言，可用简单的属于来衡量效率，比如将计算代价和所占的内存与所获得的效益（包括精度、判别性、鲁棒性和
+不变性）进行比较。方法消耗了多少时间、空间和资源呢？效率度量包括以下内容：
+\begin{itemize}
+    \item 代价：计算量、内存、时间和资源
+    \item 收益：获得的精度、鲁棒性、和不变属性；
+    \item 效率：相对于成本的收益
+\end{itemize}
+
+\subsection{鲁棒性评估}
+
+这里首先给出一个标准表格，
+\begin{table}[!htbp]
+    \caption{一般的鲁棒性标准以及它们的属性}
+    \label{tab:Robust}
+    \centering
+    \footnotesize% fontsize
+    \begin{tabular}{|c|l|}
+        \hline
+        \textbf{鲁棒性} & \multicolumn{1}{c|}{\textbf{属性}} \\ \hline
+        光照           & 分均匀光照、亮度、对比度、虚光                  \\ \hline
+        颜色           & 色彩空间精度、颜色通道、颜色位深度                \\ \hline
+        不完全性         & 混乱、遮挡、离群值、邻近、噪声、运动模糊、抖动、颤动       \\ \hline
+        分辨率、精度       & 定位精度或位置、形状和厚度畸变、焦平面或深度、像素深度分辨率   \\ \hline
+        几何失真         & 缩放、旋转、几何扭曲、反射、径向畸变、极向畸变          \\ \hline
+        判别性、唯一性      & 质量                               \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsection{精准匹配}
+
+不考虑形变的精确匹配，及其误差度量：基于像素的误差计算；考虑形变的精确匹配，形变函数后验概率。（误差不累计，以错误匹配/特征点提取总数计算，正确匹配认为落在精确点的n邻域）
+\begin{equation}
+    Matching_{error} = \frac{Keypoint_{error}}{Keypoint_{all}} 
+    \label{equ:Matching_{error}}
+\end{equation}
+\begin{equation}
+    Keypoint_{error} \in (Keypoint_{right}  \pm \epsilon) \\ 
+    deformation(Keypoint_{error}) \in (Keypoint_{right}  \pm \epsilon)
+    \label{equ:keypoint_{error}}
+\end{equation}
