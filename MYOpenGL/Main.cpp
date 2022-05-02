@@ -69,6 +69,12 @@ int main()
 	
 	GLuint uniID = glGetUniformLocation(shaderProgram.ID, "scale");
 
+	// Texture
+	int widthImg, heightImg, numColCh;
+	unsigned char* bytes = stbi_load("pop_cat.png", &widthImg, &heightImg, &numColCh, 0);
+
+	GLuint texture;
+
 	// Main while loop 
 	while (!glfwWindowShouldClose(window))
 	{
