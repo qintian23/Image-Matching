@@ -145,6 +145,7 @@
   <ItemGroup>
     <Text Include="ORB.txt" />
     <Text Include="ORB2.txt" />
+    <Text Include="suft.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
