@@ -143,6 +143,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="FAST.txt" />
     <Text Include="ORB.txt" />
     <Text Include="ORB2.txt" />
     <Text Include="SIFT.txt" />

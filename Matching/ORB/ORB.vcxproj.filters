@@ -38,6 +38,9 @@
     <Text Include="Harris.txt">
       <Filter>资源文件</Filter>
     </Text>
+    <Text Include="FAST.txt">
+      <Filter>资源文件</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <None Include="SIFT2.0">
