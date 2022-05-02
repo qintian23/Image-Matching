@@ -1,7 +1,6 @@
 #include <opencv2/highgui/highgui.hpp> 
 #include <opencv2/xfeatures2d/nonfree.hpp>
 #include <opencv2/imgproc.hpp>
-#include <opencv2/core/core.hpp>
 #include <iostream>
 
 using namespace cv;
@@ -10,6 +9,7 @@ using namespace std;
 
 int main()
 {
+
     const char* img1 = "../figure/badge.png";
     const char* img2 = "../figure/school_name.png";
     Mat image01 = imread(img1, IMREAD_COLOR);
@@ -22,19 +22,20 @@ int main()
     cvtColor(image01, image1, COLOR_RGB2GRAY);
     cvtColor(image02, image2, COLOR_RGB2GRAY);
 
+
     //提取特征点    
-    Ptr<FeatureDetector> Detector = GFTTDetector::create();
+    Ptr<FeatureDetector> surfDetector = xfeatures2d::SURF::create(2000);  // 海塞矩阵阈值，在这里调整精度，值越大点越少，越精准 
     vector<KeyPoint> keyPoint1, keyPoint2;
-    Detector->detect(image1, keyPoint1);
-    Detector->detect(image2, keyPoint2);
+    surfDetector->detect(image1, keyPoint1);
+    surfDetector->detect(image2, keyPoint2);
 
     //特征点描述，为下边的特征点匹配做准备    
-    Ptr<DescriptorExtractor>   Descriptor = SIFT::create();
+    Ptr<DescriptorExtractor> SurfDescriptor = xfeatures2d::SURF::create();
     Mat imageDesc1, imageDesc2;
-    Descriptor->compute(image1, keyPoint1, imageDesc1);
-    Descriptor->compute(image2, keyPoint2, imageDesc2);
+    SurfDescriptor->compute(image1, keyPoint1, imageDesc1);
+    SurfDescriptor->compute(image2, keyPoint2, imageDesc2);
 
-    BFMatcher matcher;
+    FlannBasedMatcher matcher;
     vector<vector<DMatch> > matchePoints;
     vector<DMatch> GoodMatchePoints;
 
@@ -57,7 +58,6 @@ int main()
     Mat first_match;
     drawMatches(image02, keyPoint2, image01, keyPoint1, GoodMatchePoints, first_match);
     imshow("first_match ", first_match);
-    imwrite("first_match.jpg", first_match);
     waitKey();
     return 0;
 }

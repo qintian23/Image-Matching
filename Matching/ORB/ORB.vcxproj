@@ -145,7 +145,12 @@
   <ItemGroup>
     <Text Include="ORB.txt" />
     <Text Include="ORB2.txt" />
+    <Text Include="SIFT.txt" />
     <Text Include="suft.txt" />
+    <Text Include="suft2.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SIFT2.0" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,7 +1,6 @@
 #include <opencv2/highgui/highgui.hpp> 
 #include <opencv2/xfeatures2d/nonfree.hpp>
 #include <opencv2/imgproc.hpp>
-#include <opencv2/core/core.hpp>
 #include <iostream>
 
 using namespace cv;
@@ -22,19 +21,20 @@ int main()
     cvtColor(image01, image1, COLOR_RGB2GRAY);
     cvtColor(image02, image2, COLOR_RGB2GRAY);
 
+
     //提取特征点    
-    Ptr<FeatureDetector> Detector = GFTTDetector::create();
+    Ptr<FeatureDetector> siftDetector = SIFT::create(2000);  // 海塞矩阵阈值，在这里调整精度，值越大点越少，越精准 
     vector<KeyPoint> keyPoint1, keyPoint2;
-    Detector->detect(image1, keyPoint1);
-    Detector->detect(image2, keyPoint2);
+    siftDetector->detect(image1, keyPoint1);
+    siftDetector->detect(image2, keyPoint2);
 
     //特征点描述，为下边的特征点匹配做准备    
-    Ptr<DescriptorExtractor>   Descriptor = SIFT::create();
+    Ptr<DescriptorExtractor> SiftDescriptor = SIFT::create(); 
     Mat imageDesc1, imageDesc2;
-    Descriptor->compute(image1, keyPoint1, imageDesc1);
-    Descriptor->compute(image2, keyPoint2, imageDesc2);
+    SiftDescriptor->compute(image1, keyPoint1, imageDesc1);
+    SiftDescriptor->compute(image2, keyPoint2, imageDesc2);
 
-    BFMatcher matcher;
+    FlannBasedMatcher matcher;
     vector<vector<DMatch> > matchePoints;
     vector<DMatch> GoodMatchePoints;
 
