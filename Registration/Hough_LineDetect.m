@@ -70,7 +70,7 @@ for k = 1:length(index)
         x=rows(i);
         y=cols(i);
         rate=(x*cos(theta)+y*sin(theta))/rho;
-        if(rate>1-10^3 & rate<1+10^-3)
+        if(rate>1-10^-3 & rate<1+10^-3)
             hough_line(x,y)=1;
         end
     end
