@@ -4,6 +4,8 @@
 
 [球面上的随机点](https://datagenetics.com/blog/january32020/index.html)
 
+我今天使用马佳义老师的VFC的opencv版做了一下实验，发现在我制作的数据集中出现了极大的误差。初步猜测存在交叉的匹配线，VFC的效果会大打折扣。
+
 ## 1 理论推导
 
 ### 1.1 OT course
