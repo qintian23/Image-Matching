@@ -141,6 +141,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="vfc.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="FAST.txt" />
@@ -150,9 +151,13 @@
     <Text Include="suft.txt" />
     <Text Include="suft2.txt" />
     <Text Include="Harris.txt" />
+    <Text Include="集成.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SIFT2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="vfc.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
