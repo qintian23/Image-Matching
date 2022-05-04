@@ -439,3 +439,5 @@ $RECYCLE.BIN/
 # VisualStudioCode
 .vscode
 .vs
+
+data/
