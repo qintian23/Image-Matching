@@ -9,9 +9,9 @@ clear all;
 close all; 
 rand('state', 0);
 
-load save_chinese_def.mat
+% load save_chinese_def.mat
 % load save_chinese_noise.mat
-% load save_chinese_outlier.mat
+load save_chinese_outlier.mat
 X=x1;
 Y=y2a;
 normalize = 1;

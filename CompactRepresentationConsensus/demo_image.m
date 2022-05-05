@@ -3,9 +3,9 @@ close all
 
 warning off   % This is vital to reduce the time cost of SparseVFC
 
-load ./data/wash.mat
+% load ./data/wash.mat
 % load ./data/castle.mat
-% load ./data/leafs.mat
+load ./data/leafs.mat
 
 % normalize data into the cube [0,1]^2 
 [Xn, Yn] = normr(X, Y); 
