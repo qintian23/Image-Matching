@@ -25,8 +25,10 @@ using namespace cv;
 int main()
 {
 
-	const char* img1 = "../figure/badge.png";
-	const char* img2 = "../figure/school_name.png";
+	//const char* img1 = "../figure/badge.png";
+	//const char* img2 = "../figure/school_name.png";
+	const char* img1 = "church1.jpg";
+	const char* img2 = "church2.jpg";
 	Mat img_1 = imread(img1, IMREAD_GRAYSCALE);
 	Mat img_2 = imread(img2, IMREAD_GRAYSCALE);
 

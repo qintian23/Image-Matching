@@ -11,19 +11,19 @@ tau1      = 0.2;   tau2      = 0.2;
 
 % % % remote sensing data
 
-fn_l = '1.bmp';
-fn_r = '2.bmp';
-Ia = imread(fn_l);
-Ib = imread(fn_r);
-load  putative_match.mat;
+% fn_l = '1.bmp';
+% fn_r = '2.bmp';
+% Ia = imread(fn_l);
+% Ib = imread(fn_r);
+% load  putative_match.mat;
 
 % % % medical retina data
 
-% fn_l = 'retina_a.jpg';
-% fn_r = 'retina_b.jpg';
-% Ia = imread(fn_l);
-% Ib = imread(fn_r);
-% load  retina_putative_match.mat;
+fn_l = 'retina_a.jpg';
+fn_r = 'retina_b.jpg';
+Ia = imread(fn_l);
+Ib = imread(fn_r);
+load  retina_putative_match.mat;
 
 % % % no initial correspondence
 

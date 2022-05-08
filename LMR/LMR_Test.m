@@ -6,17 +6,17 @@ addpath('Trained_Model');
 addpath('TestData');
 tic
 %%
-        fn_l = '120_l.JPG';
-        fn_r = '120_r.JPG';
-        Ia = imread(fn_l);
-        Ib = imread(fn_r);
-        load 120.mat;
-        
-%         fn_l = '14_a.JPG';
-%         fn_r = '14_b.JPG';
+%         fn_l = '120_l.JPG';
+%         fn_r = '120_r.JPG';
 %         Ia = imread(fn_l);
 %         Ib = imread(fn_r);
-%         load 14_20.mat;
+%         load 120.mat;
+        
+        fn_l = '14_a.JPG';
+        fn_r = '14_b.JPG';
+        Ia = imread(fn_l);
+        Ib = imread(fn_r);
+        load 14_20.mat;
         
 %         fn_l = 'church1.JPG';
 %         fn_r = 'church2.JPG';
