@@ -1,0 +1,12 @@
+../input/triangle/bird_acc.jpg
+../input/triangle/bird_acc_1.jpg
+../input/triangle/bird_anianiau.jpg
+../input/triangle/bird_anianiau_1.jpg
+../input/triangle/bird_aoc.jpg
+../input/triangle/bird_aoc_1.jpg
+../input/triangle/bird_ap.jpg
+../input/triangle/bird_apapane.jpg
+../input/triangle/bird_apapane_1.jpg
+../input/triangle/bird_ap_1.jpg
+../input/triangle/bird_booby.jpg
+../input/triangle/bird_booby_1.jpg

@@ -1,0 +1,12 @@
+../input/triangle/cheng.png
+../input/triangle/cheng1.png
+../input/triangle/dong.png
+../input/triangle/dong1.png
+../input/triangle/lin.png
+../input/triangle/lin1.png
+../input/triangle/wan.png
+../input/triangle/wan1.png
+../input/triangle/xi.png
+../input/triangle/xi1.png
+../input/triangle/zhang.png
+../input/triangle/zhang1.png
