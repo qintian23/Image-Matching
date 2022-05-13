@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{7ac2c532-1c9b-4670-b234-f403b43abf07}</ProjectGuid>
-    <RootNamespace>ORB</RootNamespace>
+    <ProjectGuid>{28fc0b46-ff89-4597-ae43-4ca05f960f3a}</ProjectGuid>
+    <RootNamespace>SIFT</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -141,19 +141,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="FAST.txt" />
-    <Text Include="ORB.txt" />
-    <Text Include="ORB2.txt" />
-    <Text Include="SIFT.txt" />
-    <Text Include="suft.txt" />
-    <Text Include="suft2.txt" />
-    <Text Include="Harris.txt" />
-    <Text Include="集成.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="SIFT2.0" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

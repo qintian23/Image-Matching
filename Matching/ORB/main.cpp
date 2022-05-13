@@ -1,121 +1,61 @@
-// This is a demo for mismatch removal by vector field consensus (VFC)
-//
-// Reference
-// [1] Jiayi Ma, Ji Zhao, Jinwen Tian, Alan Yuille, and Zhuowen Tu.
-//     Robust Point Matching via Vector Field Consensus, 
-//     IEEE Transactions on Image Processing, 23(4), pp. 1706-1721, 2014
-// [2] Jiayi Ma, Ji Zhao, Jinwen Tian, Xiang Bai, and Zhuowen Tu.
-//     Regularized Vector Field Learning with Sparse Approximation for Mismatch Removal, 
-//     Pattern Recognition, 46(12), pp. 3519-3532, 2013
-//
-// The main function is based on the tutorial of opencv:
-// http://docs.opencv.org/doc/tutorials/features2d/feature_description/feature_description.html#feature-description
-
-//#include <stdio.h>
-#include <iostream>
 #include <opencv2/highgui/highgui.hpp> 
-#include <opencv2/xfeatures2d/nonfree.hpp>
 #include <opencv2/imgproc.hpp>
-#include <iostream>
-#include "vfc.h"
+#include <opencv2/xfeatures2d/nonfree.hpp>
+#include <iostream>  
 
 using namespace cv;
+using namespace std;
 
-/** @function main */
+
 int main()
 {
+    const char* img1 = "../figure/badge.png";
+    const char* img2 = "../figure/school_name.png";
+    Mat image01 = imread(img1, IMREAD_COLOR);
+    Mat image02 = imread(img2, IMREAD_COLOR);
+    imshow("p2", image01);
+    imshow("p1", image02);
 
-	//const char* img1 = "../figure/badge.png";
-	//const char* img2 = "../figure/school_name.png";
-	const char* img1 = "church1.jpg";
-	const char* img2 = "church2.jpg";
-	Mat img_1 = imread(img1, IMREAD_GRAYSCALE);
-	Mat img_2 = imread(img2, IMREAD_GRAYSCALE);
+    //灰度图转换  
+    Mat image1, image2;
 
-	if (!img_1.data || !img_2.data)
-	{
-		return -1;
-	}
+    cvtColor(image01, image1, COLOR_RGB2GRAY);
+    cvtColor(image02, image2, COLOR_RGB2GRAY);
 
-	//-- Step 1: Detect the keypoints using SURF Detector
-	int minHessian = 400;
 
-	Ptr<FeatureDetector> detector= xfeatures2d::SURF::create(minHessian);
+    //提取特征点   
+    Ptr<FeatureDetector> OrbDetector = ORB::create();
+    vector<KeyPoint> keyPoint1, keyPoint2;
+    OrbDetector->detect(image1, keyPoint1);
+    OrbDetector->detect(image2, keyPoint2);
 
-	std::vector<KeyPoint> keypoints_1, keypoints_2;
+    //特征点描述，为下边的特征点匹配做准备    
+    Ptr<DescriptorExtractor> OrbDescriptor = ORB::create();
+    Mat imageDesc1, imageDesc2;
+    OrbDescriptor->compute(image1, keyPoint1, imageDesc1);
+    OrbDescriptor->compute(image2, keyPoint2, imageDesc2);
 
-	detector->detect(img_1, keypoints_1);
-	detector->detect(img_2, keypoints_2);
+    flann::Index flannIndex(imageDesc1, flann::LshIndexParams(12, 20, 2), cvflann::FLANN_DIST_HAMMING);
 
-	//-- Step 2: Calculate descriptors (feature vectors)
-	//xfeatures2d::SurfDescriptorExtractor extractor;
-	Ptr<DescriptorExtractor> extractor = xfeatures2d::SURF::create();
+    vector<DMatch> GoodMatchePoints;
 
-	Mat descriptors_1, descriptors_2;
+    Mat macthIndex(imageDesc2.rows, 2, CV_32SC1), matchDistance(imageDesc2.rows, 2, CV_32FC1);
+    flannIndex.knnSearch(imageDesc2, macthIndex, matchDistance, 2, flann::SearchParams());
 
-	extractor->compute(img_1, keypoints_1, descriptors_1);
-	extractor->compute(img_2, keypoints_2, descriptors_2);
+    // Lowe's algorithm,获取优秀匹配点
+    for (int i = 0; i < matchDistance.rows; i++)
+    {
+        if (matchDistance.at<float>(i, 0) < 0.6 * matchDistance.at<float>(i, 1))
+        {
+            DMatch dmatches(i, macthIndex.at<int>(i, 0), matchDistance.at<float>(i, 0));
+            GoodMatchePoints.push_back(dmatches);
+        }
+    }
 
-	//-- Step 3: Matching descriptor vectors with a brute force matcher
-	BFMatcher matcher(NORM_L2);
-	std::vector< DMatch > matches;
-	matcher.match(descriptors_1, descriptors_2, matches);
-
-	//-- Draw matches
-	Mat img_matches;
-	drawMatches(img_1, keypoints_1, img_2, keypoints_2, matches, img_matches);
-
-	//-- Show detected matches
-	imshow("Matches", img_matches);
-
-	waitKey(1);
-
-	//-- Step 4: Remove mismatches by vector field consensus (VFC)
-	// preprocess data format
-	vector<Point2f> X;
-	vector<Point2f> Y;
-	X.clear();
-	Y.clear();
-	for (unsigned int i = 0; i < matches.size(); i++) {
-		int idx1 = matches[i].queryIdx;
-		int idx2 = matches[i].trainIdx;
-		X.push_back(keypoints_1[idx1].pt);
-		Y.push_back(keypoints_2[idx2].pt);
-	}
-	// main process
-	double t = (double)getTickCount();
-	VFC myvfc;
-	myvfc.setData(X, Y);
-	myvfc.optimize();
-	vector<int> matchIdx = myvfc.obtainCorrectMatch();
-	t = 1000 * ((double)getTickCount() - t) / getTickFrequency();
-	cout << "Times (ms): " << t << endl;
-
-	// postprocess data format
-	std::vector< DMatch > correctMatches;
-	std::vector<KeyPoint> correctKeypoints_1, correctKeypoints_2;
-	correctMatches.clear();
-	for (unsigned int i = 0; i < matchIdx.size(); i++) {
-		int idx = matchIdx[i];
-		correctMatches.push_back(matches[idx]);
-		correctKeypoints_1.push_back(keypoints_1[idx]);
-		correctKeypoints_2.push_back(keypoints_2[idx]);
-	}
-	//-- Draw mismatch removal result
-	Mat img_correctMatches;
-	drawMatches(img_1, keypoints_1, img_2, keypoints_2, correctMatches, img_correctMatches);
-
-	//-- Show mismatch removal result
-	imshow("Detected Correct Matches", img_correctMatches);
-	waitKey(0);
-
-	//-- write image
-	//imwrite("C:\\intial_match.jpg", img_matches);
-	//imwrite("C:\\result.jpg", img_correctMatches);
-
-	waitKey();
-	return 0;
+    Mat first_match;
+    drawMatches(image02, keyPoint2, image01, keyPoint1, GoodMatchePoints, first_match);
+    imshow("first_match ", first_match);
+    imwrite("first_match.jpg", first_match);
+    waitKey();
+    return 0;
 }
-
-
-

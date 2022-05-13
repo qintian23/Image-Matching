@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{7ac2c532-1c9b-4670-b234-f403b43abf07}</ProjectGuid>
-    <RootNamespace>ORB</RootNamespace>
+    <ProjectGuid>{43e46af7-f467-46f3-8d9a-df4cbab4e386}</ProjectGuid>
+    <RootNamespace>VFC</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -141,19 +141,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="vfc.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="FAST.txt" />
-    <Text Include="ORB.txt" />
-    <Text Include="ORB2.txt" />
-    <Text Include="SIFT.txt" />
-    <Text Include="suft.txt" />
-    <Text Include="suft2.txt" />
-    <Text Include="Harris.txt" />
-    <Text Include="集成.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="SIFT2.0" />
+    <ClInclude Include="vfc.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
