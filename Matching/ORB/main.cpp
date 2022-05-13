@@ -8,8 +8,35 @@ using namespace cv;
 
 int main(int argc, char** argv)
 {
-    const char* img1 = "../figure/chinese/cheng.png";
-    const char* img2 = "../figure/chinese/all.png";
+    // Chinese
+    //const char* img1 = "../figure/chinese/cheng.png";  // 5000,2000，对
+    //const char* img1 = "../figure/chinese/cheng1.png"; // image1无
+    //const char* img1 = "../figure/chinese/dong.png"; // 5000,2000，对
+    //const char* img1 = "../figure/chinese/dong1.png";  // image1无
+    //const char* img1 = "../figure/chinese/lin.png"; // 5000,2000，对
+    //const char* img1 = "../figure/chinese/lin1.png"; // image1无
+    //const char* img1 = "../figure/chinese/wan.png";// image1无
+    //const char* img1 = "../figure/chinese/wan1.png";// image1无
+    //const char* img1 = "../figure/chinese/xi.png";// 5000,2000，对
+    //const char* img1 = "../figure/chinese/xi1.png";// image1无
+    //const char* img1 = "../figure/chinese/zhang.png";// image1无
+    //const char* img1 = "../figure/chinese/zhang1.png";// 5000，2000，误
+
+    // bird
+    //const char* img1 = "../figure/bird/bird_acc.jpg";  // 5000,2000，对
+    //const char* img1 = "../figure/bird/bird_acc_1.jpg"; // 5000,2000，对
+    //const char* img1 = "../figure/bird/bird_anianiau.jpg"; // 5000,2000，对
+    //const char* img1 = "../figure/bird/bird_anianiau_1.jpg";  // 5000,2000，对
+    //const char* img1 = "../figure/bird/bird_aoc.jpg"; // 5000,2000，对
+    //const char* img1 = "../figure/bird/bird_aoc_1.jpg"; // 5000,2000，对
+    //const char* img1 = "../figure/bird/bird_ap.jpg";// 5000,2000，错
+    //const char* img1 = "../figure/bird/bird_ap_1.jpg";// 5000,2000，对
+    //const char* img1 = "../figure/bird/bird_apapane.jpg";// 5000,2000，对
+    //const char* img1 = "../figure/bird/bird_apapane_1.jpg";// 5000,2000，错
+    //const char* img1 = "../figure/bird/bird_booby.jpg";// 5000,2000，对
+    const char* img1 = "../figure/bird/bird_booby_1.jpg";// 5000,2000，对
+
+    const char* img2 = "../figure/bird/all.png";
     Mat img_1 = imread(img1, IMREAD_COLOR);
     Mat img_2 = imread(img2, IMREAD_COLOR);
 
@@ -21,11 +48,23 @@ int main(int argc, char** argv)
     Mat descriptors_1, descriptors_2; // 描述子
     Ptr<FeatureDetector> detector = ORB::create(5000);
     Ptr<DescriptorExtractor> descriptor = ORB::create(2000);
+
     Ptr<DescriptorMatcher> matcher = DescriptorMatcher::create("BruteForce-Hamming");
 
     //-- 第一步:检测 Oriented FAST 角点位置
     detector->detect(img_1, keypoints_1);
     detector->detect(img_2, keypoints_2);
+
+    if (keypoints_1.size() == 0)
+    {
+        cout << "image1无法检测出特征点！！" << endl;
+        return -1;
+    }
+    if (keypoints_2.size() == 0)
+    {
+        cout << "image2无法检测出特征点！！" << endl;
+        return -1;
+    }
 
     //-- 第二步:根据角点位置计算 BRIEF 描述子
     descriptor->compute(img_1, keypoints_1, descriptors_1);
@@ -75,11 +114,13 @@ int main(int argc, char** argv)
     imshow("所有匹配点对", img_match);
     imshow("优化后匹配点对", img_goodmatch);
 
-    //imwrite("ORB.png", img_match);
-    //imwrite("ORB_good.png", img_goodmatch);
+    //imwrite("../figure/chinese/ORB.png", img_match);
+    //imwrite("../figure/chinese/ORB_good.png", img_goodmatch);
     //imwrite("ORB_feature.png", outimg1);
 
     waitKey(0);
+
+
 
     return 0;
 }
