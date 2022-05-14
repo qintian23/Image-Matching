@@ -53,12 +53,18 @@ int main()
 	//const char* img1 = "../figure/bird/bird_apapane.jpg";// 5000,2000，对
 	//const char* img1 = "../figure/bird/bird_apapane_1.jpg";// 5000,2000，对
 	//const char* img1 = "../figure/bird/bird_booby.jpg";// 5000,2000，对
-	const char* img1 = "../figure/bird/bird_booby_1.jpg";// 5000,2000，对
+	//const char* img1 = "../figure/bird/bird_booby_1.jpg";// 5000,2000，对
 
-	const char* img2 = "../figure/bird/all.png";
+	//const char* img2 = "../figure/bird/all.png";
 	//const char* img2 = "../figure/chinese/all.png";
 	//const char* img1 = "church1.jpg";
 	//const char* img2 = "church2.jpg";
+
+	const char* img1 = "../figure/3d/alex_p.png";// 对
+	//const char* img1 = "../figure/3d/david_p.png";// 对
+	//const char* img1 = "../figure/3d/sophie_p.png";// 对
+	const char* img2 = "../figure/3d/plane.png";
+
 	Mat img_1 = imread(img1, IMREAD_GRAYSCALE);
 	Mat img_2 = imread(img2, IMREAD_GRAYSCALE);
 
@@ -137,11 +143,12 @@ int main()
 
 	//-- Show mismatch removal result
 	imshow("Detected Correct Matches", img_correctMatches);
-	waitKey(0);
 
 	//-- write image
 	//imwrite("C:\\intial_match.jpg", img_matches);
-	//imwrite("C:\\result.jpg", img_correctMatches);
+	imwrite("../figure/3d/alex_match.png", img_correctMatches);
+	//imwrite("../figure/3d/david_match.png", img_correctMatches);
+	//imwrite("../figure/3d/sophie_match.png", img_correctMatches);
 
 	waitKey();
 	return 0;
