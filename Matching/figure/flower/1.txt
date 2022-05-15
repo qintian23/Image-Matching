@@ -1,0 +1,12 @@
+../input/triangle/flower_b.jpg
+../input/triangle/flower_bh.jpg
+../input/triangle/flower_bh_1.jpg
+../input/triangle/flower_b_1.jpg
+../input/triangle/flower_h.jpg
+../input/triangle/flower_h_1.jpg
+../input/triangle/flower_j.jpg
+../input/triangle/flower_jh.jpg
+../input/triangle/flower_jh_1.jpg
+../input/triangle/flower_j_1.jpg
+../input/triangle/flower_q.jpg
+../input/triangle/flower_q_1.jpg

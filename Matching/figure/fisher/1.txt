@@ -1,0 +1,12 @@
+../input/triangle/acanthopagrus_latus_1.png
+../input/triangle/acanthopagrus_latus_4.png
+../input/triangle/alectis_ciliaris_2.png
+../input/triangle/alectis_ciliaris_3.png
+../input/triangle/amanses_scopas_11.png
+../input/triangle/amanses_scopas_12.png
+../input/triangle/anampses_lennardi_5.png
+../input/triangle/anampses_lennardi_6.png
+../input/triangle/aphareus_furca_12.png
+../input/triangle/aphareus_furca_14.png
+../input/triangle/CUNWCB-Y_4.png
+../input/triangle/CUNWCB-Y_6.png
