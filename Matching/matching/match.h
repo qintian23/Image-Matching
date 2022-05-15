@@ -10,9 +10,9 @@
 #include "vfc.h"
 #include <iostream>
 
-int orb_match(const char* img1, const char* img2);
-int sift_match(const char* img1, const char* img2);
-int suft_match(const char* img1, const char* img2);
-int vfc_match(const char* img1, const char* img2);
+int orb_match(const char* img1, const char* img2, const char* file);
+int sift_match(const char* img1, const char* img2, const char* file);
+int suft_match(const char* img1, const char* img2, const char* file);
+int vfc_match(const char* img1, const char* img2, const char* file);
 
 #endif // !_MATCH_H_

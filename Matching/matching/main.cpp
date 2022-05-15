@@ -36,6 +36,12 @@ const char* img2[] = { "../figure/bird/all.png", "../figure/chinese/all.png" };
 
 int main(int argc, char** argv)
 {
-	cout << img1[0] << endl;
+	//cout << img1[0] << endl;
+	//orb_match(img1[0], img2[1], img1[0] + 18 );
+	for (int i = 0; i < 12; i++)
+	{
+		// cout << img1[i]+18 << endl;
+		orb_match(img1[i], img2[1], img1[i] + 18);
+	}
 	return 0;
 }

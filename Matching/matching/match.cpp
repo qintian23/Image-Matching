@@ -3,8 +3,9 @@
 using namespace std;
 using namespace cv;
 
-int orb_match(const char* img1, const char* img2)
+int orb_match(const char* img1, const char* img2, const char* file)
 {
+    cout << file << endl;
     Mat img_1 = imread(img1, IMREAD_COLOR);
     Mat img_2 = imread(img2, IMREAD_COLOR);
     //-- 初始化
@@ -75,18 +76,19 @@ int orb_match(const char* img1, const char* img2)
     Mat img_goodmatch;
     drawMatches(img_1, keypoints_1, img_2, keypoints_2, matches, img_match);
     drawMatches(img_1, keypoints_1, img_2, keypoints_2, good_matches, img_goodmatch);
-    imshow("所有匹配点对", img_match);
+    //imshow("所有匹配点对", img_match);
     imshow("优化后匹配点对", img_goodmatch);
 
     //imwrite("../figure/chinese/ORB.png", img_match);
-    //imwrite("../figure/chinese/ORB_good.png", img_goodmatch);
+    //cout << "../figure/chinese/ORB_good_" + string(file) << endl;
+    imwrite("../figure/chinese/ORB_good_"+ string(file), img_goodmatch);
     //imwrite("ORB_feature.png", outimg1);
 
     waitKey(0);
 	return 0;
 }
 
-int sift_match(const char* img1, const char* img2)
+int sift_match(const char* img1, const char* img2, const char* file)
 {
     Mat image01 = imread(img1, IMREAD_COLOR);
     Mat image02 = imread(img2, IMREAD_COLOR);
@@ -140,7 +142,7 @@ int sift_match(const char* img1, const char* img2)
 	return 0;
 }
 
-int suft_match(const char* img1, const char* img2)
+int suft_match(const char* img1, const char* img2, const char* file)
 {
     Mat image01 = imread(img1, IMREAD_COLOR);
     Mat image02 = imread(img2, IMREAD_COLOR);
@@ -195,7 +197,7 @@ int suft_match(const char* img1, const char* img2)
 	return 0;
 }
 
-int vfc_match(const char* img1, const char* img2)
+int vfc_match(const char* img1, const char* img2, const char* file)
 {
     Mat img_1 = imread(img1, IMREAD_GRAYSCALE);
     Mat img_2 = imread(img2, IMREAD_GRAYSCALE);
