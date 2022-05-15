@@ -81,7 +81,7 @@ int orb_match(const char* img1, const char* img2, const char* file)
 
     //imwrite("../figure/chinese/ORB.png", img_match);
     //cout << "../figure/chinese/ORB_good_" + string(file) << endl;
-    imwrite("../figure/chinese/ORB_good_"+ string(file), img_goodmatch);
+    imwrite("../figure/ORB_good_"+ string(file), img_goodmatch);
     //imwrite("ORB_feature.png", outimg1);
 
     waitKey(0);
@@ -90,6 +90,7 @@ int orb_match(const char* img1, const char* img2, const char* file)
 
 int sift_match(const char* img1, const char* img2, const char* file)
 {
+    cout << file << endl;
     Mat image01 = imread(img1, IMREAD_COLOR);
     Mat image02 = imread(img2, IMREAD_COLOR);
     //imshow("p2", image01);
@@ -137,13 +138,14 @@ int sift_match(const char* img1, const char* img2, const char* file)
     drawMatches(image01, keyPoint1, image02, keyPoint2, matchePoints, img_match);
 
     imshow("match", img_match);
-    //imwrite("first_match.jpg", first_match);
+    imwrite("../figure/sift_good_" + string(file), img_match);
     waitKey();
 	return 0;
 }
 
 int suft_match(const char* img1, const char* img2, const char* file)
 {
+    cout << file << endl;
     Mat image01 = imread(img1, IMREAD_COLOR);
     Mat image02 = imread(img2, IMREAD_COLOR);
     //imshow("p2", image01);
@@ -191,7 +193,7 @@ int suft_match(const char* img1, const char* img2, const char* file)
     drawMatches(image01, keyPoint1, image02, keyPoint2, matchePoints, img_match);
 
     imshow("match", img_match);
-    //imwrite("first_match.jpg", first_match);
+    imwrite("../figure/suft_good_" + string(file), img_match);
 
     waitKey();
 	return 0;
@@ -199,6 +201,7 @@ int suft_match(const char* img1, const char* img2, const char* file)
 
 int vfc_match(const char* img1, const char* img2, const char* file)
 {
+    cout << file << endl;
     Mat img_1 = imread(img1, IMREAD_GRAYSCALE);
     Mat img_2 = imread(img2, IMREAD_GRAYSCALE);
 
@@ -282,6 +285,7 @@ int vfc_match(const char* img1, const char* img2, const char* file)
     //-- write image
     //imwrite("C:\\intial_match.jpg", img_matches);
     //imwrite("C:\\result.jpg", img_correctMatches);
+    imwrite("../figure/sift_good_" + string(file), img_correctMatches);
 
     waitKey();
     return 0;
