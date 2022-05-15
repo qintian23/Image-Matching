@@ -55,14 +55,28 @@ const char* img1[] = {
 	"../figure/flower/flower_jh_1.jpg",
 	"../figure/flower/flower_j_1.jpg",
 	"../figure/flower/flower_q.jpg",
-	"../figure/flower/flower_q_1.jpg"
+	"../figure/flower/flower_q_1.jpg",
+	// insect 60
+	"../figure/insect/d021s0021.jpg",
+	"../figure/insect/d021s0027.jpg",
+	"../figure/insect/d057s0012.jpg",
+	"../figure/insect/d057s0013.jpg",
+	"../figure/insect/d086s0095.jpg",
+	"../figure/insect/d086s0142.jpg",
+	"../figure/insect/d162s0018.jpg",
+	"../figure/insect/d162s0020.jpg",
+	"../figure/insect/d170s0008.jpg",
+	"../figure/insect/d170s0009.jpg",
+	"../figure/insect/d206s0051.jpg",
+	"../figure/insect/d206s0054.jpg"
 };
 
 const char* img2[] = { 
 	"../figure/chinese/all.png",
 	"../figure/bird/all.png", 
 	"../figure/fisher/all.png", 
-	"../figure/flower/all.png"
+	"../figure/flower/all.png",
+	"../figure/insect/all.png"
 };
 
 int main(int argc, char** argv)

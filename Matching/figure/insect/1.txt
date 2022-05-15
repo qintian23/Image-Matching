@@ -1,0 +1,12 @@
+../input/triangle/d021s0021.jpg
+../input/triangle/d021s0027.jpg
+../input/triangle/d057s0012.jpg
+../input/triangle/d057s0013.jpg
+../input/triangle/d086s0095.jpg
+../input/triangle/d086s0142.jpg
+../input/triangle/d162s0018.jpg
+../input/triangle/d162s0020.jpg
+../input/triangle/d170s0008.jpg
+../input/triangle/d170s0009.jpg
+../input/triangle/d206s0051.jpg
+../input/triangle/d206s0054.jpg
