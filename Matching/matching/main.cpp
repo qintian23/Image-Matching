@@ -86,6 +86,7 @@ int main(int argc, char** argv)
 	//cout << img1[12] + 15 << endl;
 	//cout << img1[24] + 17 << endl;
 	//cout << img1[36] + 17 << endl;
+	//cout << img1[48] + 17 << endl;
 	//for (int i = 0; i < 12; i++) // Chinese
 	//{
 	//	// cout << img1[i]+18 << endl;
@@ -110,13 +111,21 @@ int main(int argc, char** argv)
 	//   //suft_match(img1[i], img2[2], img1[i] + 17);
 	//	//vfc_match(img1[i], img2[2], img1[i] + 17);
 	//}
-	for (int i = 36; i < 48; i++) // flower
+	//for (int i = 36; i < 48; i++) // flower
+	//{
+	//	//cout << img1[i]+15 << endl;
+	//   //orb_match(img1[i], img2[3], img1[i] + 17);
+	//   //sift_match(img1[i], img2[3], img1[i] + 17);
+	//   //suft_match(img1[i], img2[3], img1[i] + 17);
+	//	vfc_match(img1[i], img2[3], img1[i] + 17);
+	//}
+	for (int i = 48; i < 60; i++) // insect
 	{
 		//cout << img1[i]+15 << endl;
-	   //orb_match(img1[i], img2[3], img1[i] + 17);
-	   //sift_match(img1[i], img2[3], img1[i] + 17);
-	   //suft_match(img1[i], img2[3], img1[i] + 17);
-		vfc_match(img1[i], img2[3], img1[i] + 17);
+	   //orb_match(img1[i], img2[4], img1[i] + 17);
+	   //sift_match(img1[i], img2[4], img1[i] + 17);
+	   //suft_match(img1[i], img2[4], img1[i] + 17);
+		vfc_match(img1[i], img2[4], img1[i] + 17);
 	}
 	return 0;
 }
