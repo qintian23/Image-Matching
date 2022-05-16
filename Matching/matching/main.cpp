@@ -102,21 +102,21 @@ int main(int argc, char** argv)
 	//	//suft_match(img1[i], img2[1], img1[i] + 15);
 	//	//vfc_match(img1[i], img2[1], img1[i] + 15);
 	//}
-	for (int i = 24; i < 36; i++) // fish
-	{
-		//cout << img1[i]+15 << endl;
-	   //orb_match(img1[i], img2[2], img1[i] + 17);
-	   //sift_match(img1[i], img2[2], img1[i] + 17);
-	   suft_match(img1[i], img2[2], img1[i] + 17);
-		//vfc_match(img1[i], img2[2], img1[i] + 17);
-	}
-	//for (int i = 36; i < 48; i++) // flower
+	//for (int i = 24; i < 36; i++) // fish
 	//{
 	//	//cout << img1[i]+15 << endl;
-	//   //orb_match(img1[i], img2[3], img1[i] + 17);
-	//   //sift_match(img1[i], img2[3], img1[i] + 17);
-	//   //suft_match(img1[i], img2[3], img1[i] + 17);
-	//	//vfc_match(img1[i], img2[3], img1[i] + 17);
+	//   //orb_match(img1[i], img2[2], img1[i] + 17);
+	//   //sift_match(img1[i], img2[2], img1[i] + 17);
+	//   //suft_match(img1[i], img2[2], img1[i] + 17);
+	//	//vfc_match(img1[i], img2[2], img1[i] + 17);
 	//}
+	for (int i = 36; i < 48; i++) // flower
+	{
+		//cout << img1[i]+15 << endl;
+	   //orb_match(img1[i], img2[3], img1[i] + 17);
+	   //sift_match(img1[i], img2[3], img1[i] + 17);
+	   //suft_match(img1[i], img2[3], img1[i] + 17);
+		vfc_match(img1[i], img2[3], img1[i] + 17);
+	}
 	return 0;
 }
