@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{76d74264-5084-411d-83bc-f21df4f4da3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\GLFW">
+      <UniqueIdentifier>{3d25b1b0-4a16-4af8-8420-24558743619c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib">
+      <UniqueIdentifier>{c1d41c12-5cd4-4ceb-b8a6-a4bbe11c164f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{9a142324-24d9-4f08-86f3-50c59deae7f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\01_Hello">
+      <UniqueIdentifier>{be470f2a-0f20-4d4b-af7d-51427003b58e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\GLFW\glfw3.h">
+      <Filter>include\GLFW</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GLFW\glfw3native.h">
+      <Filter>include\GLFW</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="lib\glfw3.lib">
+      <Filter>lib</Filter>
+    </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\01_Hello\README.md">
+      <Filter>src\01_Hello</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\01_Hello\main.cpp">
+      <Filter>src\01_Hello</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
