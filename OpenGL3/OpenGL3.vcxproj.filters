@@ -16,6 +16,9 @@
     <Filter Include="src\01_Hello">
       <UniqueIdentifier>{be470f2a-0f20-4d4b-af7d-51427003b58e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include\glad">
+      <UniqueIdentifier>{e4dc2783-5cd2-45f6-9c93-7f796c05a247}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\GLFW\glfw3.h">
@@ -23,6 +26,9 @@
     </ClInclude>
     <ClInclude Include="include\GLFW\glfw3native.h">
       <Filter>include\GLFW</Filter>
+    </ClInclude>
+    <ClInclude Include="include\glad\glad.h">
+      <Filter>include\glad</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

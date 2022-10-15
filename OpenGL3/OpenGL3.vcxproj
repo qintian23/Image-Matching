@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>F:\zuoye\2022\Project\Image-Matching\OpenGL3\include;$(IncludePath)</IncludePath>
-    <LibraryPath>F:\zuoye\2022\Project\Image-Matching\OpenGL3\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>G:\zuoye\2022\Project\Image-Matching\OpenGL3\include;$(IncludePath)</IncludePath>
+    <LibraryPath>G:\zuoye\2022\Project\Image-Matching\OpenGL3\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -132,6 +132,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\glad\glad.h" />
     <ClInclude Include="include\GLFW\glfw3.h" />
     <ClInclude Include="include\GLFW\glfw3native.h" />
   </ItemGroup>
